@@ -14,3 +14,40 @@ And also a shoutout to [Chu-Tak Li](https://chutakcode.wixsite.com/website) for 
 
 
 ## Run
+
+* use [Google colab](https://research.google.com/colaboratory/)
+
+* Since Google Colab uses the latest Tensorflow 2x version and this project uses 1.15.0, downgrade to Tensorflow 1.15.0 version and restart the runtime, (`although the new version of Google Colab does not need you to restart the runtime`).
+
+      !pip install tensorflow==1.15.0
+ 
+* Install tensorflow toolkit [neuralgym](https://github.com/JiahuiYu/neuralgym).
+  
+      !pip install git+https://github.com/JiahuiYu/neuralgym
+      
+* Download the model dirs using this [link](https://drive.google.com/drive/folders/1xRV4EdjJuAfsX9pQme6XeoFznKXG0ptJ?usp=sharing) and put it under `model/` (rename `checkpoint.txt` to `checkpoint` because google drive automatically add ext after download)
+      
+And you're all Set!!
+
+* Now remove the watermark on the image by runing the `main.py` file
+
+      !python main.py --image path-to-input-image --output path-to-output-image --checkpoint model
+
+
+
+## Citing
+```
+@article{yu2018generative,
+  title={Generative Image Inpainting with Contextual Attention},
+  author={Yu, Jiahui and Lin, Zhe and Yang, Jimei and Shen, Xiaohui and Lu, Xin and Huang, Thomas S},
+  journal={arXiv preprint arXiv:1801.07892},
+  year={2018}
+}
+
+@article{yu2018free,
+  title={Free-Form Image Inpainting with Gated Convolution},
+  author={Yu, Jiahui and Lin, Zhe and Yang, Jimei and Shen, Xiaohui and Lu, Xin and Huang, Thomas S},
+  journal={arXiv preprint arXiv:1806.03589},
+  year={2018}
+}
+```
