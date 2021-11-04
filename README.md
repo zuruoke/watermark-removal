@@ -31,7 +31,7 @@ And you're all Set!!
 
 * Now remove the watermark on the image by runing the `main.py` file
 
-      !python main.py --image path-to-input-image --output path-to-output-image --checkpoint model
+      !python main.py --image path-to-input-image --output path-to-output-image --checkpoint_dir model/
 
 
 

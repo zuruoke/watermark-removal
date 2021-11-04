@@ -1,19 +1,3 @@
-#import tensorflow as tf
-#import argparse
-#import numpy as np
-#import os
-#import cv2
-#from PIL import Image
-#import neuralgym as ng
-#from inpaint_model import InpaintCAModel
-#import requests
-#import urllib
-#import json
-#import uuid
-#import flask
-#import io
-#import uuid
-
 import argparse
 
 import cv2
@@ -26,14 +10,12 @@ from inpaint_model import InpaintCAModel
 parser = argparse.ArgumentParser()
 parser.add_argument('--image', default='', type=str,
                     help='The filename of image to be completed.')
-#parser.add_argument('--mask', default='', type=str,
-#                    help='The filename of mask, value 255 indicates mask.')
 parser.add_argument('--output', default='output.png', type=str,
                     help='Where to write output.')
-#parser.add_argument('--checkpoint_dir', default='', type=str,
-#                    help='The directory of tensorflow checkpoint.')
+parser.add_argument('--checkpoint_dir', default='model/', type=str,
+                   help='The directory of tensorflow checkpoint.')
 
-checkpoint_dir = 'model/'
+#checkpoint_dir = 'model/'
 
 
 if __name__ == "__main__":
@@ -72,7 +54,7 @@ if __name__ == "__main__":
         for var in vars_list:
             vname = var.name
             from_name = vname
-            var_value = tf.contrib.framework.load_variable(checkpoint_dir, from_name)
+            var_value = tf.contrib.framework.load_variable(args.checkpoint_dir, from_name)
             assign_ops.append(tf.assign(var, var_value))
         sess.run(assign_ops)
         print('Model loaded.')
