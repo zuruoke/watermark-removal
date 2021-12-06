@@ -28,7 +28,7 @@ And also a shoutout to [Chu-Tak Li](https://chutakcode.wixsite.com/website) for 
 
       !pip install git+https://github.com/JiahuiYu/neuralgym
 
-- Download the model dirs using this [link](https://drive.google.com/drive/folders/1xRV4EdjJuAfsX9pQme6XeoFznKXG0ptJ?usp=sharing) and put it under `model/` (rename `checkpoint.txt` to `checkpoint` because google drive automatically add ext after download)
+- Download the model dirs using this [link](https://drive.google.com/drive/folders/1xRV4EdjJuAfsX9pQme6XeoFznKXG0ptJ?usp=sharing) and put it under `model/` (rename `checkpoint.txt` to `checkpoint` because sometimes google drive automatically adds .txt after download)
 
 And you're all Set!!
 
