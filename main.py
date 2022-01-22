@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
     sess_config = tf.ConfigProto()
     sess_config.gpu_options.allow_growth = True
-    if (input_image != None):
+    if (input_image.shape != (0,)):
         with tf.Session(config=sess_config) as sess:
             input_image = tf.constant(input_image, dtype=tf.float32)
             output = model.build_server_graph(FLAGS, input_image)
@@ -53,5 +53,6 @@ if __name__ == "__main__":
             sess.run(assign_ops)
             print('Model loaded.')
             result = sess.run(output)
-            cv2.imwrite(args.output, result[0][:, :, ::-1])
+            cv2.imwrite(args.output, cv2.cvtColor(
+                result[0][:, :, ::-1], cv2.COLOR_BGR2RGB))
             print('image saved to {}'.format(args.output))

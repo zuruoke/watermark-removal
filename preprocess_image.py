@@ -5,7 +5,7 @@ import cv2
 
 def preprocess_image(image, watermark_type):
     image_type: str = ''
-    preprocessed_mask_image = None
+    preprocessed_mask_image = np.array([])
     if image.mode != "RGB":
         image = image.convert("RGB")
     image = np.array(image)
@@ -23,6 +23,8 @@ def preprocess_image(image, watermark_type):
 
     mask_image = Image.open(
         "utils/{}/{}/mask.png".format(watermark_type, image_type))
+    if mask_image.mode != "RGB":
+        mask_image = mask_image.convert("RGB")
     mask_image = np.array(mask_image)
     print("mask image size: {}".format(mask_image.shape))
 
@@ -36,7 +38,7 @@ def preprocess_image(image, watermark_type):
     else:
         print("Image size not supported!!!")
 
-    if preprocessed_mask_image != None:
+    if (preprocessed_mask_image.shape != (0,)):
         assert image.shape == preprocessed_mask_image
         grid = 8
         image = image[:image_h//grid*grid, :image_w//grid*grid, :]
