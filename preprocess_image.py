@@ -1,10 +1,9 @@
-from typing import Any
 import numpy as np
 from PIL import Image
 import cv2
 
 
-def preprocess_image(image: Any, watermark_type: str) -> Any | None:
+def preprocess_image(image, watermark_type):
     image_type: str = ''
     preprocessed_mask_image = None
     if image.mode != "RGB":

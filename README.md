@@ -20,6 +20,10 @@ And also a shoutout to [Chu-Tak Li](https://chutakcode.wixsite.com/website) for 
 
       !git clone https://github.com/zuruoke/watermark-removal
 
+- Change Directory to the repo
+
+      !cd watermark-removal
+
 - Since Google Colab uses the latest Tensorflow 2x version and this project uses 1.15.0, downgrade to Tensorflow 1.15.0 version and restart the runtime, (`although the new version of Google Colab does not need you to restart the runtime`).
 
       !pip install tensorflow==1.15.0
@@ -34,7 +38,7 @@ And you're all Set!!
 
 - Now remove the watermark on the image by runing the `main.py` file
 
-      !python main.py --image path-to-input-image --output path-to-output-image --checkpoint_dir model/
+      !python main.py --image path-to-input-image --output path-to-output-image --checkpoint_dir model/ --watermark_type istock
 
 ## Citing
 
