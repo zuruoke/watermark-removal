@@ -1,3 +1,4 @@
+import time
 import argparse
 
 from PIL import Image
@@ -21,7 +22,8 @@ parser.add_argument('--checkpoint_dir', default='model/', type=str,
 
 #checkpoint_dir = 'model/'
 
-
+# record start time
+start = time.time()
 if __name__ == "__main__":
     FLAGS = ng.Config('inpaint.yml')
     # ng.get_gpus(1)
@@ -56,3 +58,6 @@ if __name__ == "__main__":
             cv2.imwrite(args.output, cv2.cvtColor(
                 result[0][:, :, ::-1], cv2.COLOR_BGR2RGB))
             print('image saved to {}'.format(args.output))
+            # record end time
+            end = time.time()
+            print("Total time taken: {:.4f} seconds".format(end - start))

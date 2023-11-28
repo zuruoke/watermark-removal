@@ -13,39 +13,32 @@ from inpaint_model import InpaintCAModel
 parser = argparse.ArgumentParser()
 parser.add_argument(
     '--flist', default='', type=str,
-    help='The filenames of image to be processed: input, mask, output.')
+    help='The filenames of the image to be processed: input, mask, output.')
 parser.add_argument(
     '--image_height', default=-1, type=int,
-    help='The height of images should be defined, otherwise batch mode is not'
+    help='The height of images should be defined; otherwise, batch mode is not'
     ' supported.')
 parser.add_argument(
     '--image_width', default=-1, type=int,
-    help='The width of images should be defined, otherwise batch mode is not'
+    help='The width of images should be defined; otherwise, batch mode is not'
     ' supported.')
 parser.add_argument(
     '--checkpoint_dir', default='', type=str,
-    help='The directory of tensorflow checkpoint.')
+    help='The directory of TensorFlow checkpoint.')
 
-parser.add_argument(
-    '--batch_size', default=1, type=int,
-    help='Batch size for processing.')
 
 if __name__ == "__main__":
+    
+    # Use CPU
     ng.get_gpus(0, dedicated=False)
     # os.environ['CUDA_VISIBLE_DEVICES'] =''
     args = parser.parse_args()
-
-    sess_config = tf.ConfigProto()
-    sess_config.gpu_options.allow_growth = True
-    sess = tf.Session(config=sess_config)
+    
 
     model = InpaintCAModel()
     input_image_ph = tf.placeholder(
         tf.float32, shape=(1, args.image_height, args.image_width*3, 3))
-    
-    
-    output = model.build_server_graph(batch_data=input_image_ph)
-    
+    output = model.build_server_graph(input_image_ph)
     output = (output + 1.) * 127.5
     output = tf.reverse(output, [-1])
     output = tf.saturate_cast(output, tf.uint8)
@@ -64,7 +57,6 @@ if __name__ == "__main__":
         lines = f.read().splitlines()
     t = time.time()
     for line in lines:
-    # for i in range(100):
         image, mask, out = line.split()
         base = os.path.basename(mask)
 
@@ -74,10 +66,6 @@ if __name__ == "__main__":
         image = cv2.resize(image, (args.image_width, args.image_height))
         guidance = cv2.resize(guidance, (args.image_width, args.image_height))
         mask = cv2.resize(mask, (args.image_width, args.image_height))
-        # cv2.imwrite(out, image*(1-mask/255.) + mask)
-        # # continue
-        # image = np.zeros((128, 256, 3))
-        # mask = np.zeros((128, 256, 3))
 
         assert image.shape == mask.shape
 

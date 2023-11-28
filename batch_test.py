@@ -29,7 +29,7 @@ parser.add_argument(
 
 if __name__ == "__main__":
     FLAGS = ng.Config('inpaint.yml')
-    ng.get_gpus(1)
+    ng.get_gpus(0, dedicated=False)
     # os.environ['CUDA_VISIBLE_DEVICES'] =''
     args = parser.parse_args()
 

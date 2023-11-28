@@ -1,0 +1,16 @@
+./images/test05.jpg ./utils/istock/landscape/mask.png ./output/test05.jpg
+./images/5.jpg ./utils/istock/landscape/mask.png ./output/5.jpg
+./images/test03.jpg ./utils/istock/landscape/mask.png ./output/test03.jpg
+./images/3.jpg ./utils/istock/landscape/mask.png ./output/3.jpg
+./images/4.jpg ./utils/istock/landscape/mask.png ./output/4.jpg
+./images/test07.jpg ./utils/istock/landscape/mask.png ./output/test07.jpg
+./images/7.jpg ./utils/istock/landscape/mask.png ./output/7.jpg
+./images/9.jpg ./utils/istock/landscape/mask.png ./output/9.jpg
+./images/test02.jpg ./utils/istock/landscape/mask.png ./output/test02.jpg
+./images/6.jpg ./utils/istock/landscape/mask.png ./output/6.jpg
+./images/test06.jpg ./utils/istock/landscape/mask.png ./output/test06.jpg
+./images/2.jpg ./utils/istock/landscape/mask.png ./output/2.jpg
+./images/8.jpg ./utils/istock/landscape/mask.png ./output/8.jpg
+./images/1.jpg ./utils/istock/landscape/mask.png ./output/1.jpg
+./images/downloaded_image.jpg ./utils/istock/landscape/mask.png ./output/downloaded_image.jpg
+./images/test04.jpg ./utils/istock/landscape/mask.png ./output/test04.jpg
