@@ -1,4 +1,4 @@
-© Chimzuruoke Okafor
+Chimzuruoke Okafor
 
 # Watermark-Removal
 
