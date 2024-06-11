@@ -154,48 +154,72 @@ def bbox2mask(FLAGS, bbox, name='mask'):
 
 
 def brush_stroke_mask(FLAGS, name='mask'):
-    """Generate mask tensor from bbox."""
+    """Generate mask tensor from bbox.
+
+    Returns:
+        tf.Tensor: output with shape [1, H, W, 1]
+
+    """
     min_num_vertex = 4
     max_num_vertex = 12
-    mean_angle = 2 * np.pi / 5
-    angle_range = 2 * np.pi / 15
+    mean_angle = 2*math.pi / 5
+    angle_range = 2*math.pi / 15
     min_width = 12
     max_width = 40
-
     def generate_mask(H, W):
-        average_radius = np.sqrt(H * H + W * W) / 8
-        mask = np.zeros((H, W), dtype=np.float32)
+        average_radius = math.sqrt(H*H+W*W) / 8
+        mask = Image.new('L', (W, H), 0)
 
         for _ in range(np.random.randint(1, 4)):
             num_vertex = np.random.randint(min_num_vertex, max_num_vertex)
-            angles = np.random.uniform(mean_angle - angle_range, mean_angle + angle_range, num_vertex)
-            vertex = np.random.randint(0, W, (num_vertex, 2))
-
+            angle_min = mean_angle - np.random.uniform(0, angle_range)
+            angle_max = mean_angle + np.random.uniform(0, angle_range)
+            angles = []
+            vertex = []
             for i in range(num_vertex):
-                r = np.clip(np.random.normal(loc=average_radius, scale=average_radius / 2), 0, 2 * average_radius)
-                new_x = np.clip(vertex[i, 0] + r * np.cos(angles[i]), 0, W)
-                new_y = np.clip(vertex[i, 1] + r * np.sin(angles[i]), 0, H)
-                vertex = np.append(vertex, [[new_x, new_y]], axis=0)
+                if i % 2 == 0:
+                    angles.append(2*math.pi - np.random.uniform(angle_min, angle_max))
+                else:
+                    angles.append(np.random.uniform(angle_min, angle_max))
 
-            width = np.random.uniform(min_width, max_width)
+            h, w = mask.size
+            vertex.append((int(np.random.randint(0, w)), int(np.random.randint(0, h))))
             for i in range(num_vertex):
-                x, y = vertex[i]
-                mask = tf.image.draw_bounding_boxes(mask[None], [[y, x, y, x]], [width])[0]
+                r = np.clip(
+                    np.random.normal(loc=average_radius, scale=average_radius//2),
+                    0, 2*average_radius)
+                new_x = np.clip(vertex[-1][0] + r * math.cos(angles[i]), 0, w)
+                new_y = np.clip(vertex[-1][1] + r * math.sin(angles[i]), 0, h)
+                vertex.append((int(new_x), int(new_y)))
+
+            draw = ImageDraw.Draw(mask)
+            width = int(np.random.uniform(min_width, max_width))
+            draw.line(vertex, fill=1, width=width)
+            for v in vertex:
+                draw.ellipse((v[0] - width//2,
+                              v[1] - width//2,
+                              v[0] + width//2,
+                              v[1] + width//2),
+                             fill=1)
 
         if np.random.normal() > 0:
-            mask = tf.image.flip_left_right(mask)
+            mask.transpose(Image.FLIP_LEFT_RIGHT)
         if np.random.normal() > 0:
-            mask = tf.image.flip_up_down(mask)
-
-        return mask[None, :, :, None]
-
+            mask.transpose(Image.FLIP_TOP_BOTTOM)
+        mask = np.asarray(mask, np.float32)
+        mask = np.reshape(mask, (1, H, W, 1))
+        return mask
     with tf.variable_scope(name), tf.device('/cpu:0'):
         img_shape = FLAGS.img_shapes
         height = img_shape[0]
         width = img_shape[1]
-        mask = tf.py_func(generate_mask, [height, width], tf.float32, stateful=True)
+        mask = tf.py_func(
+            generate_mask,
+            [height, width],
+            tf.float32, stateful=True)
         mask.set_shape([1] + [height, width] + [1])
     return mask
+
 
 def local_patch(x, bbox):
     """Crop local patch according to bbox.
