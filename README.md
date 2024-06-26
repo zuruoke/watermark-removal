@@ -2,6 +2,12 @@ Chimzuruoke Okafor
 
 # Watermark-Removal
 
+<p>
+  <a href="https://pepy.tech/project/prompttools" target="_blank"><img src="https://static.pepy.tech/badge/prompttools" alt="Total Downloads"/></a>
+  <a href="https://github.com/hegelai/watermark-removal"><img src="https://img.shields.io/github/stars/zuruoke/watermark-removal" /></a>
+  <a href="https://twitter.com/zuruoke_okafor"><img src="https://img.shields.io/twitter/follow/Zuruoke_Okafor?style=social"></a>
+</p>
+
 ![version](https://img.shields.io/badge/version-v1.0.0-green.svg?style=plastic)
 ![pytorch](https://img.shields.io/badge/tensorflow-v1.15.0-green.svg?style=plastic)
 ![license](https://img.shields.io/badge/license-CC_BY--NC-green.svg?style=plastic)
