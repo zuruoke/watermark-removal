@@ -12,6 +12,12 @@ Chimzuruoke Okafor
 ![pytorch](https://img.shields.io/badge/tensorflow-v1.15.0-green.svg?style=plastic)
 ![license](https://img.shields.io/badge/license-CC_BY--NC-green.svg?style=plastic)
 
+<a href="https://coff.ee/zuruokeokafor" target="_blank">
+  <img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png"
+       alt="Buy Me A Coffee"
+       style="height: 41px;width:174px;box-shadow:0px 3px 2px rgba(190,190,190,0.5);" />
+</a>
+
 An open source project that uses a machine learning based image inpainting methodology to remove watermark from images which is totally indistinguishable from the ground truth version of the image.
 
 This project was inspired by the [Contextual Attention](https://arxiv.org/abs/1801.07892) (CVPR 2018) and [Gated Convolution](https://arxiv.org/abs/1806.03589) (ICCV 2019 Oral).
