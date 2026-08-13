@@ -93,11 +93,11 @@ GitHub Repository. https://doi.org/10.5281/zenodo.20551267
 ```
 
 <p align="center">
-<a href="https://star-history.com/#zuruoke/watermark-removal">
+<a href="https://star-history.dera.page/#zuruoke/watermark-removal">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=zuruoke/watermark-removal&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=zuruoke/watermark-removal&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=zuruoke/watermark-removal&type=Date" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://star-history.dera.page/svg?repos=zuruoke/watermark-removal&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://star-history.dera.page/svg?repos=zuruoke/watermark-removal&type=Date" />
+    <img alt="Star History Chart" src="https://star-history.dera.page/svg?repos=zuruoke/watermark-removal&type=Date" />
   </picture>
 </a>
 </p>
