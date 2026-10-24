@@ -1,0 +1,8 @@
+watermark-removal
+Copyright (c) 2021 Chimzuruoke Okafor
+Licensed under the MIT License (see LICENSE).
+
+Third-party code:
+inpaint_model.py and inpaint_ops.py are adapted from
+JiahuiYu/generative_inpainting (https://github.com/JiahuiYu/generative_inpainting),
+which is licensed under CC BY-NC 4.0. Those portions remain under that license.
