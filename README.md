@@ -3,14 +3,14 @@ Chimzuruoke Okafor
 # Watermark-Removal
 
 <p>
-  <a href="https://pepy.tech/project/prompttools" target="_blank"><img src="https://static.pepy.tech/badge/prompttools" alt="Total Downloads"/></a>
-  <a href="https://github.com/hegelai/watermark-removal"><img src="https://img.shields.io/github/stars/zuruoke/watermark-removal" /></a>
-  <a href="https://twitter.com/zuruoke_okafor"><img src="https://img.shields.io/twitter/follow/Zuruoke_Okafor?style=social"></a>
+  <a href="https://github.com/zuruoke/watermark-removal"><img src="https://img.shields.io/github/stars/zuruoke/watermark-removal?style=social" alt="GitHub stars"/></a>
+  <a href="https://doi.org/10.5281/zenodo.20551267"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.20551267.svg" alt="DOI"/></a>
+  <a href="https://twitter.com/zuruoke_okafor"><img src="https://img.shields.io/twitter/follow/Zuruoke_Okafor?style=social" alt="Follow on X"/></a>
 </p>
 
 ![version](https://img.shields.io/badge/version-v1.0.0-green.svg?style=plastic)
-![pytorch](https://img.shields.io/badge/tensorflow-v1.15.0-green.svg?style=plastic)
-![license](https://img.shields.io/badge/license-CC_BY--NC-green.svg?style=plastic)
+![tensorflow](https://img.shields.io/badge/tensorflow-v1.15.0-green.svg?style=plastic)
+[![license](https://img.shields.io/badge/license-MIT-green.svg?style=plastic)](LICENSE)
 
 <a href="https://coff.ee/zuruokeokafor" target="_blank">
   <img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png"
